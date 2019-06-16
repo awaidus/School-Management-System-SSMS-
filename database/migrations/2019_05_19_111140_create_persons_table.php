@@ -15,8 +15,9 @@ class CreatePersonsTable extends Migration
     {
         Schema::create('persons', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedinteger('student_id');
-            $table->text('name');
+            $table->unsignedinteger('user_id');
+            $table->text('father_name');
+            $table->text('mother_name');
             $table->string('address')->nullable();
             $table->string('mobile_no')->nullable();
             $table->string('phone_no')->nullable();

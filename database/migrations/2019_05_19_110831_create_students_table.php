@@ -15,6 +15,7 @@ class CreateStudentsTable extends Migration
     {
         Schema::create('students', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->unsignedinteger('parent_id');
             $table->text('name');
             $table->string('roll_no');
             $table->dateTime('dob');

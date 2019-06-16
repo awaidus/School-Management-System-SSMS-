@@ -14,6 +14,8 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // $this->call(UsersTableSeeder::class);
-        factory(Person::class, 10)->create();
+        factory(Person::class, 10)->create()->each(function ($person) {
+            factory(Student::class, 3)->create(['parent_id' => $person->id]);
+        });
     }
 }
