@@ -4,13 +4,13 @@
 
 use Faker\Generator as Faker;
 use App\Student;
-use App\Person;
+use App\Parents;
 
 $factory->define(Student::class, function (Faker $faker) {
     return [
         'name' => $faker->name,
         'parent_id' => function () {
-            return factory(Person::class)->create()->id;
+            return factory(Parents::class)->create()->id;
         },
         'roll_no' => $faker->numerify('ST-####'),
         'dob' => $faker->dateTimeBetween($startDate = '-10 years', $endDate = '-5 years', $timezone = null),

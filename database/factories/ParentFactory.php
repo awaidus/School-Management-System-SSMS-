@@ -15,7 +15,6 @@ $factory->define(Parents::class, function (Faker $faker) {
         'father_name' => $faker->name('male'),
         'mother_name' => $faker->name('female'),
         'address' => $faker->address,
-        'mobile_no' => $faker->phoneNumber,
         'phone_no' => $faker->phoneNumber,
         'email' => $faker->email,
     ];

@@ -18,6 +18,16 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    <style>
+        .no-mr {
+            margin-right: 0;
+        }
+
+        .no-ml {
+            margin-left: 0;
+        }
+    </style>
 </head>
 <body>
 <div id="app">
@@ -76,7 +86,7 @@
         </div>
     </nav>
 
-    <main class="py-4">
+    <main class="py-4 container">
         @yield('content')
     </main>
 </div>

@@ -1,50 +1,25 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">Dashboard</div>
+    <div class="row justify-content-center">
+        <a class="btn btn-primary" href="{{route('parent.create')}}">Create New Parrent</a>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <h3 class="card-header">Parent List</h3>
+                <div class="card-body">
+                    @foreach ($parents as $parent)
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="mb-1">Father: {{$parent->father_name}}</h5>
+                                <h5 class="mb-1">Mother: {{$parent->mother_name}}</h5>
+                                <h5 class="mb-1">Ph: {{$parent->phone_no}}</h5>
+                                <a href="{{route('parent.show', $parent)}}" class="btn btn-outline-primary btn-sm">Details</a>
+                            </div>
+                        </div>
+                    @endforeach {{--end parent foreach--}}
 
-                    <div class="card-body">
-                        <h3>Parent List</h3>
-                        <table class="table table-bordered table-responsive">
-                            <thead>
-                            <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">Parent Name</th>
-                                <th scope="col">Students</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            @foreach ($parents as $parent)
-                                <tr>
-                                    <th scope="row"></th>
-                                    <td>
-                                        <div>Father: {{$parent->father_name}}</div>
-                                        <div>Mothet: {{$parent->mother_name}}</div>
-
-                                        <div class="btn-group btn-group-sm" role="group" aria-label="...">
-                                            <button type="button" class="btn btn-primary">Edit</button>
-                                            <button type="button" class="btn btn-danger">Delete</button>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        @foreach ($parent->students as $student)
-                                            <ul class="list-group list-group-flush">
-                                                <li class="list-group-item">
-                                                    <div>Name: <a href="/students/{{$student->id}}">{{$student->name}}</a></div>
-                                                    <div>Roll#: {{$student->roll_no}}</div>
-                                                </li>
-                                            </ul>
-                                        @endforeach
-                                    </td>
-                                </tr>
-                            @endforeach
-                            </tbody>
-                        </table>
-                    </div>
                 </div>
             </div>
         </div>

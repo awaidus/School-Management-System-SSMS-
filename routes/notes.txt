@@ -1,0 +1,18 @@
+Step-1.. Create a route in root/web.php file  like 'Route::get('/', 'ParentsController@index');'
+Step-2.. Create a controller and appropriate action in controller folder like 'ParentsController' and method "index"
+Step-3.. Add desire functionality in controller's method like fetching data.
+Step-4.. Create a blade view file in appropriate view folder
+
+
+
+=======================================================
+HTTP verb       route           controller method
+=======================================================
+GET         /students           (index)
+GET         /students/create    (create)
+GET         /students/1/show    (show)
+POST        /students           (store)
+GET         /students/1/edit    (edit)
+PATCH       /students/1         (update)
+DELETE      /students/1         (destroy)
+=======================================================

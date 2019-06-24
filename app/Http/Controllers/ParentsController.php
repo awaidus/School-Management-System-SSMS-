@@ -3,18 +3,19 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Parent;
+use App\Parents;
+use Illuminate\Http\Response;
 
-class PersonsController extends Controller
+class ParentsController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function index()
     {
-        $parents = Parent::with('students')->get();
+        $parents = Parents::all();
 
         return view('parent.index', compact('parents'));
     }
@@ -22,63 +23,96 @@ class PersonsController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function create()
     {
-        //
+        $parent = new Parents();
+        return view('parent.create', compact('parent'));
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @return Response
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'father_name' => ['required', 'min:3'],
+            'mother_name' => ['required', 'min:3'],
+            'phone_no' => ['required', 'min:3'],
+        ]);
+        /*METHOD-1, LONG WAY*/
+//        $parent = new Parents();
+//
+//        $parent->father_name = $request->father_name;
+//        $parent->mother_name = $request->mother_name;
+//        $parent->address = $request->address;
+//        $parent->phone_no = $request->phone_no;
+//        $parent->email = $request->email;
+//
+//        $parent->save();
+
+        /*METHOD-2, SHORT WAY*/
+
+        Parents::create($request->all());
+
+        return redirect('/');
+
+
     }
 
     /**
      * Display the specified resource.
      *
-     * @param int $id
-     * @return \Illuminate\Http\Response
+     * @param Parents $parent
+     * @return Response
      */
-    public function show($id)
+    public function show(Parents $parent)
     {
-        //
+        //Laravel will automatically query the result from db based on ID passed through URL
+        //and the related record will be available without any code like $parent variable
+        return view('parent.show', compact('parent'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param int $id
-     * @return \Illuminate\Http\Response
+     * @param Parents $parent
+     * @return void
      */
-    public function edit($id)
+    public function edit(Parents $parent)
     {
-        //
+        return view('parent.edit', compact('parent'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
+     * @param Request $request
      * @param int $id
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Parents $parent)
     {
-        //
+        $request->validate([
+            'father_name' => ['required', 'min:3'],
+            'mother_name' => ['required', 'min:3'],
+            'phone_no' => ['required', 'min:7'],
+        ]);
+
+        $parent->update($request->all());
+
+        return redirect('/');
     }
 
     /**
      * Remove the specified resource from storage.
      *
      * @param int $id
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function destroy($id)
     {

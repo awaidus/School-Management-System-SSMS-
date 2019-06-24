@@ -4,12 +4,14 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Parent extends Model
+class Parents extends Model
 {
     protected $table = 'parents';
 
+    protected $fillable = ['father_name', 'mother_nsame', 'address', 'phone_no', 'email'];
+
     /**
-     * Get the Children/ Students record associated with the Person/ Parents.
+     * Get the Students record associated with the Parents.
      */
     public function students()
     {
