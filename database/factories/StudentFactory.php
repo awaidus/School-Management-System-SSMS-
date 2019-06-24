@@ -13,7 +13,7 @@ $factory->define(Student::class, function (Faker $faker) {
             return factory(Parents::class)->create()->id;
         },
         'roll_no' => $faker->numerify('ST-####'),
-        'dob' => $faker->dateTimeBetween($startDate = '-10 years', $endDate = '-5 years', $timezone = null),
-        'doa' => $faker->dateTimeBetween($startDate = '-1 years', $endDate = 'now', $timezone = null),
+        'dob' => $faker->date(),
+        'doa' => $faker->date(),
     ];
 });

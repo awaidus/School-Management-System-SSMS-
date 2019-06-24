@@ -19,6 +19,7 @@ class CreateAttendancesTable extends Migration
             $table->date('working_day');
             $table->dateTime('in_at');
             $table->dateTime('out_at');
+            $table->string('absence_reason');
             $table->timestamps();
         });
     }

@@ -18,8 +18,8 @@ class CreateStudentsTable extends Migration
             $table->unsignedinteger('parent_id');
             $table->text('name');
             $table->string('roll_no');
-            $table->dateTime('dob');
-            $table->dateTime('doa');
+            $table->date('dob');
+            $table->date('doa');
             $table->timestamps();
         });
     }

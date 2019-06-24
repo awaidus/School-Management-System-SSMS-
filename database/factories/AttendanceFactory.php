@@ -14,5 +14,6 @@ $factory->define(Attendance::class, function (Faker $faker) {
         'working_day' => $faker->dateTimeBetween($startDate = '2019-01-01', $endDate = '2019-01-31', $timezone = null),
         'in_at' => $faker->dateTimeBetween($startDate = '2019-01-01', $endDate = '2019-01-31', $timezone = null),
         'out_at' => $faker->dateTimeBetween($startDate = '2019-01-01', $endDate = '2019-01-31', $timezone = null),
+        'absence_reason' => $faker->sentence(10),
     ];
 });

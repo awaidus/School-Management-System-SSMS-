@@ -52,21 +52,24 @@ class StudentsController extends Controller
         //from the route as per passed "id". Field 'id' is used as search parameter.
         //thus, we have the specific $student
 
-//return $student;
+//        return $student->with('attendances')->paginate(10);
 
-
-        return view('student.show', compact('student'));
+        return view('student.show', [
+            'student' => $student->load('attendances', 'classes'),
+            'attendances' => $student->attendances()->paginate(10)
+        ]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param Student $student
+     * @return void
      */
-    public function edit($id)
+    public function edit(Student $student)
     {
-        //
+
+        return view('student.edit', compact('student'));
     }
 
     /**

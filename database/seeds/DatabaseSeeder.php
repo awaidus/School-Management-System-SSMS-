@@ -1,6 +1,7 @@
 <?php
 
 use App\Attendance;
+use App\User;
 use Illuminate\Database\Seeder;
 use App\Parents;
 use App\Student;
@@ -22,7 +23,7 @@ class DatabaseSeeder extends Seeder
         });
 
         //one record for admin purposes
-        factory(Student::class, 1)->create([
+        factory(User::class, 1)->create([
             'name' => 'admin',
             'email' => 'admin@ssms.com',
         ]);
