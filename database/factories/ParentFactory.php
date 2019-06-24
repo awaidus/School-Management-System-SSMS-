@@ -1,12 +1,13 @@
 <?php
 
-/* @var $factory \Illuminate\Database\Eloquent\Factory */
+/* @var $factory Factory */
 
 use Faker\Generator as Faker;
-use App\Person;
+use App\Parents;
 use App\User;
+use Illuminate\Database\Eloquent\Factory;
 
-$factory->define(Person::class, function (Faker $faker) {
+$factory->define(Parents::class, function (Faker $faker) {
     return [
         'user_id' => function () {
             return factory(User::class)->create()->id;

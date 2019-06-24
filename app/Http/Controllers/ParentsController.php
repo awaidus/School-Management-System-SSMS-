@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Person;
+use App\Parent;
 
 class PersonsController extends Controller
 {
@@ -14,9 +14,9 @@ class PersonsController extends Controller
      */
     public function index()
     {
-        $parents = Person::with('students')->get();
+        $parents = Parent::with('students')->get();
 
-        return view('person.index', compact('parents'));
+        return view('parent.index', compact('parents'));
     }
 
     /**

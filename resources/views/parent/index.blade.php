@@ -29,14 +29,12 @@
                                             <button type="button" class="btn btn-primary">Edit</button>
                                             <button type="button" class="btn btn-danger">Delete</button>
                                         </div>
-
-
                                     </td>
                                     <td>
                                         @foreach ($parent->students as $student)
                                             <ul class="list-group list-group-flush">
                                                 <li class="list-group-item">
-                                                    <div>Name: {{$student->name}}</div>
+                                                    <div>Name: <a href="/students/{{$student->id}}">{{$student->name}}</a></div>
                                                     <div>Roll#: {{$student->roll_no}}</div>
                                                 </li>
                                             </ul>

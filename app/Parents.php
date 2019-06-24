@@ -4,9 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Person extends Model
+class Parent extends Model
 {
-    protected $table = 'persons'; 
+    protected $table = 'parents';
 
     /**
      * Get the Children/ Students record associated with the Person/ Parents.
