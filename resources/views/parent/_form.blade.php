@@ -8,8 +8,9 @@
     </div>
 </div>
 
+
 <div class="form-group row">
-    <label for="mother_name" class="col-3 col-form-label mr-0">Mother's Name</label>
+    <label for="mother_name" class="col-3 col-form-label">Mother's Name</label>
     <div class="col">
         <input type="text" class="form-control" name="mother_name" value="{{old("mother_name", $parent->mother_name)}}">
     </div>

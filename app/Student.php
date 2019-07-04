@@ -7,7 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class Student extends Model
 {
     protected  $guarded = [];
-    protected $dates = [];
+//    protected $dates = ['dob', 'doa'];
+//    protected $dateFormat = "U";
+
 //    protected $with = ['attendances'];
 
     public function parents()

@@ -2,8 +2,8 @@
 
 
 <div class="form-group row">
-    <label for="parent_id" class="col-3 col-form-label">Parents</label>
-    <div class="col">
+    <label for="parent_id" class="col-2 col-form-label pr-0">Parents</label>
+    <div class="col pl-0">
         <select class="form-control" name="parent_id">
             @foreach($parents as $parent)
                 <option value="{{$parent->id }}" {{ ( $parent->id == $student->parent_id) ? 'selected' : '' }}>
@@ -14,38 +14,10 @@
     </div>
 </div>
 
+@include('components.input', ['label' => 'Student Name', 'name'=>'name', 'value'=>$student->name])
+@include('components.input', ['label' => 'Roll #', 'name'=>'roll_no', 'value'=>$student->roll_no])
+@include('components.input', ['label' => 'Birth Date', 'name'=>'dob', 'value'=>$student->dob, 'type'=> 'date'])
+@include('components.input', ['label' => 'Admission Date', 'name'=>'doa', 'value'=>$student->doa, 'type'=> 'date'])
 
-<div class="form-group row">
-    <label for="name" class="col-3 col-form-label">Name</label>
-    <div class="col">
-        <input type="text" class="form-control" name="name" value="{{old("name", $student->name)}}">
-    </div>
-</div>
+@include('components.submit');
 
-<div class="form-group row">
-    <label for="roll_no" class="col-3 col-form-label mr-0">Roll No.</label>
-    <div class="col">
-        <input type="text" class="form-control" name="roll_no" value="{{old("roll_no", $student->roll_no)}}">
-    </div>
-</div>
-
-<div class="form-group row">
-    <label for="dob" class="col-3 col-form-label mr-0">Birth Date</label>
-    <div class="col">
-        <input type="date" class="form-control" name="dob" value="{{old("dob", $student->dob)}}">
-    </div>
-</div>
-
-<div class="form-group row">
-    <label for="doa" class="col-3 col-form-label mr-0">Admission Date</label>
-    <div class="col">
-        <input type="date" class="form-control" name="doa" value="{{old("doa", $student->doa)}}" required>
-    </div>
-</div>
-
-<div class="form-group row">
-    <div class="offset-3 pl-3">
-        <button type="submit" class="btn btn-primary">Submit</button>
-        <a href="{{ url()->previous() }}" class="btn btn-outline-dark">Back</a>
-    </div>
-</div>

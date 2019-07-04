@@ -1,16 +1,17 @@
 <div class="form-group row">
-    <label for="{{$name}}"
-           class="col-3 col-form-label"
-    >
-        {{$label ?? $name}}
+    <label for="{{ $name }}" class="col-form-label col-2 pr-0 ">
+
+        {{ $label ?? $name }}
+
     </label>
 
-    <div class="col">
+    <div class="col pl-0">
         <input
-                type="{{$type ?? 'text'}}"
+                type="{{ $type ?? 'text' }}"
                 class="form-control"
-                name="{{$name}}"
-                value= {{old($name, $model->$name)}},
+                name="{{ $name }}"
+                id="{{ $name }}"
+                value="{{ old($name, $value ?? '') }}"
         >
     </div>
 </div>
