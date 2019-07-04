@@ -2,6 +2,20 @@
 
 
 <div class="form-group row">
+    <label for="parent_id" class="col-3 col-form-label">Parents</label>
+    <div class="col">
+        <select class="form-control" name="parent_id">
+            @foreach($parents as $parent)
+                <option value="{{$parent->id }}" {{ ( $parent->id == $student->parent_id) ? 'selected' : '' }}>
+                    {{ $parent->father_name }}
+                </option>
+            @endforeach
+        </select>
+    </div>
+</div>
+
+
+<div class="form-group row">
     <label for="name" class="col-3 col-form-label">Name</label>
     <div class="col">
         <input type="text" class="form-control" name="name" value="{{old("name", $student->name)}}">

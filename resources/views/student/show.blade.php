@@ -7,18 +7,23 @@
                 <div class="card">
                     <div class="card-header">
                         <h3>Student: <strong>{{$student->name}}</strong>'s Record</h3>
-                        <a href="{{route('student.edit', $student)}}" class="btn btn-outline-primary btn-sm">Edit</a>
+                        <a href="{{route('students.edit', $student)}}" class="btn btn-outline-primary btn-sm">Edit</a>
                     </div>
                     <div class="card-body">
-                        <h3>Bio</h3>
+
+                        <h3>Particulars</h3>
                         <ul class="list-group">
                             <li class="list-group-item">Class Name: </li>
                             <li class="list-group-item">Roll No: </li>
-                            <li class="list-group-item">Father Name: </li>
-                            <li class="list-group-item">Mother Name: </li>
+                            <li class="list-group-item">
+                                Father Name: {{ $student->parents->father_name }}
+                                (Ph#: {{ $student->parents->phone_no }})
+                            </li>
                         </ul>
 
                         <h3>Attendances</h3>
+                        <div class="my-3">{{ $attendances->links() }}</div>
+
                         <table class="table table-bordered">
                             <thead>
                             <tr>
@@ -39,7 +44,7 @@
                             @endforeach
                             </tbody>
                         </table>
-                        {{ $attendances->links() }}
+                        <div class="my-3">{{ $attendances->links() }}</div>
                     </div>
                 </div>
             </div>

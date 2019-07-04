@@ -12,15 +12,16 @@ Route::get('/parents/{parent}/edit', 'ParentsController@edit')->name('parent.edi
 Route::post('/parents', 'ParentsController@store')->name('parent.store');
 Route::patch('/parents/{parent}', 'ParentsController@update')->name('parent.update');
 
-Route::get('/students/{student}', 'StudentsController@show')->name('student.show');
-Route::get('/student/{student}/edit', 'StudentsController@edit')->name('student.edit');
-Route::patch('/students/{student}', 'StudentsController@update')->name('student.update');
+
+Route::resource('students', 'StudentsController');  //this will create all the routes resources automatically like
+//INDEX, CREATE, SHOW, EDIT, STORE, UPDATE for 'Student' record using
+// StudentsController's action.
+
+//Route::get('/students', 'StudentsController@index')->name('student.index');
+//Route::get('/students/create', 'StudentsController@create')->name('student.create');
+//Route::get('/students/{student}', 'StudentsController@show')->name('student.show');
+//Route::get('/student/{student}/edit', 'StudentsController@edit')->name('student.edit');
+//Route::patch('/students/{student}', 'StudentsController@update')->name('student.update');
 
 
-
-
-
-
-
-
-Route::get('/home', 'HomeController@index')->name('home'); // we can use any name for easy access of specific route
+Route::get('/home', 'HomeController@index')->name('home'); // we can name the route for easy access

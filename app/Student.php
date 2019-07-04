@@ -7,9 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 class Student extends Model
 {
     protected  $guarded = [];
-    protected $dates = ['dob', 'dob'];
+    protected $dates = [];
 //    protected $with = ['attendances'];
 
+    public function parents()
+    {
+        return $this->belongsTo(Parents::class, 'parent_id');
+    }
     /**
      * Get the comments for the blog post.
      */
