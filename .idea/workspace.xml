@@ -2,14 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ad98a541-e692-4619-b513-3eb242df4254" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/components/select.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/components/submit.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/StudentsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/StudentsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Student.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Student.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/input.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/input.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/parent/_form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/parent/_form.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/student/_form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/student/_form.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -41,56 +34,7 @@
     <favorites_list name="ssms" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/resources/views/student/_form.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="462">
-              <caret line="21" column="30" lean-forward="true" selection-start-line="21" selection-start-column="30" selection-end-line="21" selection-end-column="30" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/StudentsController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="277">
-              <caret line="74" lean-forward="true" selection-start-line="74" selection-end-line="74" />
-              <folding>
-                <element signature="e#40#56#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Student.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="167">
-              <caret line="19" column="41" selection-start-line="19" selection-start-column="41" selection-end-line="19" selection-end-column="41" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/components/input.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="154">
-              <caret line="7" column="20" lean-forward="true" selection-start-line="7" selection-start-column="20" selection-end-line="7" selection-end-column="24" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/components/submit.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="22">
-              <caret line="1" column="24" selection-start-line="1" selection-start-column="24" selection-end-line="1" selection-end-column="24" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -238,6 +182,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -288,7 +233,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -299,7 +243,7 @@
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="PHP" />
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
-    <property name="settings.editor.selected.configurable" value="Configurable.PHP.Blade" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -347,7 +291,9 @@
       <workItem from="1561314679317" duration="659000" />
       <workItem from="1561383911059" duration="8472000" />
       <workItem from="1562175601544" duration="1792000" />
-      <workItem from="1562254300008" duration="13727000" />
+      <workItem from="1562254300008" duration="13986000" />
+      <workItem from="1562336825090" duration="332000" />
+      <workItem from="1562337319414" duration="1117000" />
     </task>
     <task id="LOCAL-00001" summary="Add initial auth and home page setup">
       <created>1560692530606</created>
@@ -370,11 +316,18 @@
       <option name="project" value="LOCAL" />
       <updated>1562265534047</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Add Input Components in single place 'views/components/' folder and used it all _form.blade.php pages">
+      <created>1562272999901</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1562272999901</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="66389000" />
+    <option name="totallyTimeSpent" value="68097000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -387,10 +340,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4870229" weight="0.15812592" />
-      <window_info id="Version Control" order="1" side_tool="true" weight="0.80257183" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4816984" weight="0.15812592" />
+      <window_info id="Version Control" order="1" sideWeight="0.5183016" side_tool="true" weight="0.15812592" />
       <window_info id="Structure" order="2" sideWeight="0.50940174" side_tool="true" weight="0.15885022" />
       <window_info id="npm" order="3" side_tool="true" />
       <window_info id="Favorites" order="4" sideWeight="0.5129771" side_tool="true" weight="0.15812592" />
@@ -414,12 +366,23 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ORDER">
+      <list>
+        <option value="0" />
+        <option value="2" />
+        <option value="3" />
+        <option value="1" />
+      </list>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="Add initial auth and home page setup" />
     <MESSAGE value="Add Student full CRUD operations with views, model, controller and routes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add Student full CRUD operations with views, model, controller and routes" />
+    <MESSAGE value="Add Input Components in single place 'views/components/' folder and used it all _form.blade.php pages" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add Input Components in single place 'views/components/' folder and used it all _form.blade.php pages" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
@@ -584,6 +547,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/student/_form.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="462">
+          <caret line="21" column="30" lean-forward="true" selection-start-line="21" selection-start-column="30" selection-end-line="21" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/Student.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="167">
@@ -591,13 +561,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/StudentsController.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/components/input.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="277">
-          <caret line="74" lean-forward="true" selection-start-line="74" selection-end-line="74" />
-          <folding>
-            <element signature="e#40#56#0#PHP" expanded="true" />
-          </folding>
+        <state relative-caret-position="154">
+          <caret line="7" column="20" selection-start-line="7" selection-start-column="20" selection-end-line="7" selection-end-column="24" />
         </state>
       </provider>
     </entry>
@@ -608,17 +575,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/components/input.blade.php">
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/StudentsController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="7" column="20" lean-forward="true" selection-start-line="7" selection-start-column="20" selection-end-line="7" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/student/_form.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="21" column="30" lean-forward="true" selection-start-line="21" selection-start-column="30" selection-end-line="21" selection-end-column="30" />
+        <state relative-caret-position="277">
+          <caret line="74" selection-start-line="74" selection-end-line="74" />
         </state>
       </provider>
     </entry>

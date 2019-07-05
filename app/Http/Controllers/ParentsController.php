@@ -15,7 +15,7 @@ class ParentsController extends Controller
      */
     public function index()
     {
-        $parents = Parents::all();
+        $parents = Parents::paginate(10);
 
         return view('parent.index', compact('parents'));
     }
@@ -39,20 +39,14 @@ class ParentsController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'father_name' => ['required', 'min:3'],
-            'mother_name' => ['required', 'min:3'],
-            'phone_no' => ['required', 'min:3'],
-        ]);
+        $request->validate($this->validateRequest);
         /*METHOD-1, LONG WAY*/
 //        $parent = new Parents();
-//
 //        $parent->father_name = $request->father_name;
 //        $parent->mother_name = $request->mother_name;
 //        $parent->address = $request->address;
 //        $parent->phone_no = $request->phone_no;
 //        $parent->email = $request->email;
-//
 //        $parent->save();
 
         /*METHOD-2, SHORT WAY*/
@@ -60,8 +54,6 @@ class ParentsController extends Controller
         Parents::create($request->all());
 
         return redirect('/');
-
-
     }
 
     /**
@@ -72,6 +64,7 @@ class ParentsController extends Controller
      */
     public function show(Parents $parent)
     {
+        // Route-Model binding: 
         //Laravel will automatically query the result from db based on ID passed through URL
         //and the related record will be available without any code like $parent variable
         return view('parent.show', compact('parent'));
@@ -97,11 +90,7 @@ class ParentsController extends Controller
      */
     public function update(Request $request, Parents $parent)
     {
-        $request->validate([
-            'father_name' => ['required', 'min:3'],
-            'mother_name' => ['required', 'min:3'],
-            'phone_no' => ['required', 'min:7'],
-        ]);
+        $request->validate($this->validateRequest());
 
         $parent->update($request->all());
 
@@ -117,5 +106,13 @@ class ParentsController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function validateRequest(){
+        return [
+            'father_name' => ['required', 'min:3'],
+            'mother_name' => ['required', 'min:3'],
+            'phone_no' => ['required', 'min:3'],
+        ];
     }
 }

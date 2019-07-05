@@ -7,8 +7,8 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">
-                    <h5 class="mb-1">Father: {{$parent->father_name}}</h5>
-                    <h5 class="mb-1">Mother: {{$parent->mother_name}}</h5>
+                    <h5 class="mb-1">Father: {{ $parent->father_name }}</h5>
+                    <h5 class="mb-1">Mother: {{ $parent->mother_name }}</h5>
                     <a href="{{route('parent.edit', $parent)}}" class="btn btn-outline-primary btn-sm">Edit</a>
                 </div>
 

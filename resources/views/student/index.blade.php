@@ -9,6 +9,7 @@
             <div class="card">
                 <h3 class="card-header">Parent List</h3>
                 <div class="card-body">
+                    
                     <div class="my-3">{{ $students->links() }}</div>
 
                     @foreach ($students as $student)

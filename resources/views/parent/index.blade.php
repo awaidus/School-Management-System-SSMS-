@@ -2,13 +2,16 @@
 
 @section('content')
     <div class="row justify-content-center">
-        <a class="btn btn-primary" href="{{route('parent.create')}}">Create New Parent</a>
+        <a class="btn btn-primary" href="{{ route('parent.create') }}">Create New Parent</a>
     </div>
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
                 <h3 class="card-header">Parent List</h3>
                 <div class="card-body">
+                    
+                    <div class="my-3">{{ $parents->links() }}</div>
+                    
                     @foreach ($parents as $parent)
                         <div class="card">
                             <div class="card-body">
@@ -19,6 +22,8 @@
                             </div>
                         </div>
                     @endforeach {{--end parent foreach--}}
+
+                    <div class="my-3">{{ $parents->links() }}</div>
 
                 </div>
             </div>
