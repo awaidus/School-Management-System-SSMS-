@@ -17,9 +17,15 @@
                        href="{{ route('parent.index') }}">Parents List</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ Request::is('students.index') ? 'active' : ''  }}"
+                    <a class="nav-link {{ Request::is('students.index') ? 'active' : '' }}"
                        href="{{ route('students.index') }}">Student List</a>
                 </li>
+
+                <li class="nav-item">
+                    <a class="nav-link"
+                       href="{{ route('attendances.index') }}">Attendances</a>
+                </li>
+
             </ul>
 
             <!-- Right Side Of Navbar -->

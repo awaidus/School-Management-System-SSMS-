@@ -36,10 +36,11 @@
                             <tbody>
                             @foreach ($attendances as $att)
                                 <tr>
-                                    <th scope="row">{{$att->working_day->format('d-m-y')}}, {{$att->working_day->format('l')}}</th>
-                                    <td>{{$att->in_at->format('H:i:s')}}</td>
-                                    <td>{{$att->out_at->format('H:i:s')}}</td>
-                                    <td></td>
+                                    <th class="py-0" scope="row">{{$att->working_day->format('d-m-y')}}
+                                        , {{$att->working_day->format('l')}}</th>
+                                    <td class="py-0">{{$att->in_at->format('H:i:s')}}</td>
+                                    <td class="py-0">{{$att->out_at->format('H:i:s')}}</td>
+                                    <td class="py-0">{{$att->absence_reason}}</td>
                                 </tr>
                             @endforeach
                             </tbody>

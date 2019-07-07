@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 class CreateAttendancesTable extends Migration
 {
@@ -17,9 +17,9 @@ class CreateAttendancesTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedInteger('student_id');
             $table->date('working_day');
-            $table->dateTime('in_at');
-            $table->dateTime('out_at');
-            $table->string('absence_reason');
+            $table->time('in_at')->nullable();
+            $table->time('out_at')->nullable();
+            $table->string('absence_reason')->nullable();
             $table->timestamps();
         });
     }
