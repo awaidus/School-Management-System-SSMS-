@@ -17,7 +17,7 @@
                                 <div class="col-md-6">
                                     <input id="name" type="text"
                                            class="form-control @error('name') is-invalid @enderror" name="name"
-                                           value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                           value="{{ old('name') }}" >
 
                                     @error('name')
                                     <span class="invalid-feedback" role="alert">
@@ -70,6 +70,18 @@
                                            name="password_confirmation" required autocomplete="new-password">
                                 </div>
                             </div>
+
+                            <div class="form-group row">
+                                {{-- <div class="col-sm-2">Checkbox</div> --}}
+                                <div class="col-md-6">
+                                  <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="gridCheck1">
+                                    <label class="form-check-label" for="gridCheck1">
+                                      Example checkbox
+                                    </label>
+                                  </div>
+                                </div>
+                              </div>
 
                             <div class="form-group row mb-0">
                                 <div class="col-md-6 offset-md-4">

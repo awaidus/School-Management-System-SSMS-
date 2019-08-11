@@ -19,7 +19,9 @@ class CreateAttendancesTable extends Migration
             $table->date('working_day');
             $table->time('in_at')->nullable();
             $table->time('out_at')->nullable();
-            $table->string('absence_reason')->nullable();
+            $table->boolean('missing')->default(0);
+            $table->boolean('approved')->default(0);
+            $table->string('remarks')->nullable();
             $table->timestamps();
         });
     }

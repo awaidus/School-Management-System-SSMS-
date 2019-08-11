@@ -6,15 +6,19 @@ use Illuminate\Database\Eloquent\Model;
 
 class Attendance extends Model
 {
-    protected $fillable = ['student_id', 'working_day', 'in_at', 'out_at', 'absence_reason'];
-
-    protected $dates = [
-//        'working_day', 'in_at', 'out_at'
+    protected $fillable = [
+        'student_id',
+        'working_day',
+        'in_at', 'out_at',
+        
+        'missing',
+        'approved',
+        'remarks',
     ];
+
     protected $casts = [
-//        'working_day' => 'datetime:d-m-Y',
-//        'in_at' => 'datetime:H:i',
-//        'out_at' => 'datetime:H:i',
+        'missing' => 'boolean',
+        'approved' => 'boolean',
     ];
 
     public function student()
@@ -29,33 +33,28 @@ class Attendance extends Model
             ->select('attendances.*', 'students.name as student_name', 'students.roll_no');
     }
 
-    public function scopeAbsents($query)
+    public function scopeMissingAttendances($query)
     {
         return $query
-            ->where('in_at', '>', 'students.id')
-            ->select('attendances.*', 'students.name as student_name', 'students.roll_no');
+            ->where(function ($query) {
+                $query->where('missing', true);
+                $query->where('approved', false);
+            });
+//            ->where('in_at', '=', null)
+//            ->OrWhere('out_at', '=', null)
+//            ->orWhere('in_at', '>=', Carbon::parse('08:15'))
+//            ->orWhere('out_at', '<=', Carbon::parse('13:30'));
     }
 
-//    public function getInAtAttribute()
-//    {
-//        return $this->in_at->format('H:i');
-//    }
-//
-//    public function getOutAtAttribute()
-//    {
-//        return $this->out_at->format('H:i');
-//    }
+    public function setMissingAttribute($value)
+    {
+        $this->attributes['missing'] = ($value == 'on') ? 1 : 0;
+    }
 
-
-//    public function setInAtAttribute($value)
-//    {
-//        $this->attributes['in_at'] = $value . ':00';
-//    }
-//
-//    public function setOutAtAttribute($value)
-//    {
-//        $this->attributes['out_at'] = $value . ':00';
-//    }
+    public function setApprovedAttribute($value)
+    {
+        $this->attributes['approved'] = ($value == 'on') ? 1 : 0;
+    }
 
 
 }

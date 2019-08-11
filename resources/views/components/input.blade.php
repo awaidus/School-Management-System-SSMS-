@@ -12,6 +12,14 @@
                 name="{{ $name }}"
                 id="{{ $name }}"
                 value="{{ old($name, $value ?? '') }}"
-        >
+                >
+
     </div>
+
+    @error($name)
+        <span class="invalid-feedback" role="alert">
+            <strong>{{ $message }}</strong>
+        </span>
+    @enderror
+
 </div>

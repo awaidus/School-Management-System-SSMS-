@@ -39,7 +39,7 @@ class ParentsController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate($this->validateRequest);
+        $request->validate($this->validateRequest());
         /*METHOD-1, LONG WAY*/
 //        $parent = new Parents();
 //        $parent->father_name = $request->father_name;

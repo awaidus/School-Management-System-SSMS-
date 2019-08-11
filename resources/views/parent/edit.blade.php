@@ -7,6 +7,7 @@
             <h3>Edit Parent Record</h3>
         </div>
         <div class="card-body">
+            
             @include('_validation_errors')
 
             <form method="POST" action="{{route('parent.update', $parent)}}">
