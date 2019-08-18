@@ -1,15 +1,14 @@
 @extends('layouts.app')
 
 @section('content')
+
+<a class="btn btn-primary" href="{{route('students.create')}}">Create New Student</a>
+
     <div class="row justify-content-center">
-        <a class="btn btn-primary" href="{{route('students.create')}}">Create New Student</a>
-    </div>
-    <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-12">
             <div class="card">
                 <h3 class="card-header">Parent List</h3>
-                <div class="card-body">
-                    
+                <div class="card-body">                    
                     <div class="my-3">{{ $students->links() }}</div>
 
                     @foreach ($students as $student)

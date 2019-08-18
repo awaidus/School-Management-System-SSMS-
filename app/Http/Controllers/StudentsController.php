@@ -71,8 +71,6 @@ class StudentsController extends Controller
      */
     public function edit(Student $student)
     {
-//        return $student;
-
         $parents = Parents::all();
 
         return view('student.edit', compact('parents', 'student'));

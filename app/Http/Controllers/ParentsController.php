@@ -33,7 +33,7 @@ class ParentsController extends Controller
 
     /**
      * Store a newly created resource in storage.
-     *
+     * 
      * @param Request $request
      * @return Response
      */
@@ -41,13 +41,13 @@ class ParentsController extends Controller
     {
         $request->validate($this->validateRequest());
         /*METHOD-1, LONG WAY*/
-//        $parent = new Parents();
-//        $parent->father_name = $request->father_name;
-//        $parent->mother_name = $request->mother_name;
-//        $parent->address = $request->address;
-//        $parent->phone_no = $request->phone_no;
-//        $parent->email = $request->email;
-//        $parent->save();
+        //        $parent = new Parents();
+        //        $parent->father_name = $request->father_name;
+        //        $parent->mother_name = $request->mother_name;
+        //        $parent->address = $request->address;
+        //        $parent->phone_no = $request->phone_no;
+        //        $parent->email = $request->email;
+        //        $parent->save();
 
         /*METHOD-2, SHORT WAY*/
 
@@ -108,7 +108,8 @@ class ParentsController extends Controller
         //
     }
 
-    public function validateRequest(){
+    public function validateRequest()
+    {
         return [
             'father_name' => ['required', 'min:3'],
             'mother_name' => ['required', 'min:3'],
