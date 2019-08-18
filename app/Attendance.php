@@ -10,7 +10,7 @@ class Attendance extends Model
         'student_id',
         'working_day',
         'in_at', 'out_at',
-        
+
         'missing',
         'approved',
         'remarks',
@@ -40,10 +40,18 @@ class Attendance extends Model
                 $query->where('missing', true);
                 $query->where('approved', false);
             });
-//            ->where('in_at', '=', null)
-//            ->OrWhere('out_at', '=', null)
-//            ->orWhere('in_at', '>=', Carbon::parse('08:15'))
-//            ->orWhere('out_at', '<=', Carbon::parse('13:30'));
+        //            ->where('in_at', '=', null)
+        //            ->OrWhere('out_at', '=', null)
+        //            ->orWhere('in_at', '>=', Carbon::parse('08:15'))
+        //            ->orWhere('out_at', '<=', Carbon::parse('13:30'));
+    }
+
+    public function scopeApprovedAttendances($query)
+    {
+        return $query
+            ->where(function ($query) {
+                $query->where('approved', true);
+            });
     }
 
     public function setMissingAttribute($value)
@@ -55,6 +63,4 @@ class Attendance extends Model
     {
         $this->attributes['approved'] = ($value == 'on') ? 1 : 0;
     }
-
-
 }

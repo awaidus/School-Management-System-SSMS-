@@ -2,14 +2,14 @@
 
 @section('content')
 <div class="card">
-    <div class="card-header">Edit Parent Record</div>
+    <div class="card-header">Edit Attandance Record</div>
     <div class="card-body">
 
         @include('_validation_errors')
 
-        <form method="POST" action="{{route('parent.update', $parent)}}">
+        <form method="POST" action="{{route('attendances.update', $attendance)}}">
             @method('PATCH')
-            @include('parent._form')
+            @include('attendance._form')
         </form>
 
     </div>

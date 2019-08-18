@@ -2,30 +2,20 @@
 
 @section('content')
 
-    <a class="btn btn-primary" href="{{ route('missing-attendances.index') }}">Missing Attendances</a>
-    <hr>
+<a class="btn btn-primary" href="{{ route('attendances.create') }}">Add Attendance</a>
+<a class="btn btn-outline-info" href="{{ route('approved-attendances.index') }}">Approved Attendances</a>
+<a class="btn btn-outline-info" href="{{ route('missing-attendances.index') }}">Missing Attendances</a>
+<hr>
 
-    @component('components.panel')
 
-        @slot('header')
-            <h3>Add New Attendance Record</h3>
-        @endslot
 
-        @include('_validation_errors')
+@component('components.panel')
 
-        <form method="POST" action="{{route('attendances.store')}}">
-            @include('attendance._form')
-        </form>
+@slot('header')
+All Attendance Record
+@endslot
 
-    @endcomponent
-    <hr>
-
-    @component('components.panel')
-        @slot('header')
-            <h3>All Attendance Record</h3>
-        @endslot
-        @include('attendance._list')
-    @endcomponent
+@include('attendance._list')
+@endcomponent
 
 @endsection
-

@@ -1,15 +1,15 @@
 <div class="form-group row">
-    <label for="{{ $name }}" class="col-form-label col-2 pr-0 ">
-        {{ $label ?? $name }}
-    </label>
+
+    <label for="{{ $name }}" class="col-form-label col-2 pr-2 pl-0 text-right">{{ $label ?? $name}}</label>
 
     <div class="col pl-0">
-        <select class="form-control" name="{{ $name }}" id="{{ $name }}">
-            @foreach($options as $opt)
-                <option value="{{$opt->id }}" {{  $selected ? 'selected' : '' }}>
-                    {{ $opt->$display }}
-                </option>
+        <select class="form-control" name="{{ $name }}">
+            @foreach($items as $item)
+            <option value="{{$item->$value_field }}" {{ ($item->$value_field == $selected_value)  ? 'selected' : '' }}>
+                {{ $item->$display_field }}
+            </option>
             @endforeach
+
         </select>
 
     </div>

@@ -12,7 +12,9 @@ class AttendancesController extends Controller
     {
         $students = Student::all();
 
-        $attendances = Attendance::latest('working_day')->WithStudent()->paginate(50);
+        $attendances = Attendance::latest('working_day')
+            ->WithStudent()
+            ->paginate(50);
 
         return view('attendance.index', compact('attendances', 'students'));
     }
@@ -20,13 +22,12 @@ class AttendancesController extends Controller
     public function create()
     {
         $students = Student::all();
-        return view('attendance.create', compact('students'));
+        $attendance = new Attendance();
+        return view('attendance.create', compact('students', 'attendance'));
     }
 
     public function store(Request $request)
     {
-//        return $request;
-
         $request->validate($this->validateRequest());
 
         Attendance::create($request->all());
@@ -50,12 +51,17 @@ class AttendancesController extends Controller
 
     public function edit(Attendance $attendance)
     {
-        //
+        $students = Student::all();
+        return view('attendance.edit', compact('students', 'attendance'));
     }
 
     public function update(Request $request, Attendance $attendance)
     {
-        //
+        $request->validate($this->validateRequest());
+
+        $attendance->update($request->all());
+
+        return redirect()->route('attendances.index');
     }
 
 
