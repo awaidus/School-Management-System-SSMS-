@@ -49,34 +49,8 @@
 'value'=>$attendance->remarks
 ])
 
-<div class="form-group row">
-    <div class="offset-2">
-        <button type="submit" class="btn btn-primary">Submit</button>
-        <a href="{{ route('attendances.index') }}" class="btn btn-outline-info">Back</a>
+@include('components.submit')
 
-        {{-- Delete attendance record --}}
-        {{-- @if ($attendance->id > 0)
-        <form method="post" action="{{ route('attendances.destroy', $attendance) }}">
-        @method('DELETE')
-        @csrf
-        <button type="submit" class="btn btn-outline-danger" onclick="return confirmDelete()">Delete</button>
-        </form>
-        @endif --}}
-
-    </div>
-</div>
-
-
-
-
-@section('script')
-<script>
-    function confirmDelete() {
-            return confirm('Are you sure you want to delete?');
-        }
-</script>
-
-@endsection
 
 
 

@@ -5,7 +5,8 @@
     <div class="col pl-0">
         <select class="form-control" name="{{ $name }}">
             @foreach($items as $item)
-            <option value="{{$item->$value_field }}" {{ ($item->$value_field == $selected_value)  ? 'selected' : '' }}>
+            <option value="{{$item->$value_field }}"
+                {{ ($item->$value_field == ($selected_value ?? false) )  ? 'selected' : '' }}>
                 {{ $item->$display_field }}
             </option>
             @endforeach

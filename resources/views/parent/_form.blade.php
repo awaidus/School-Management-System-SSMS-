@@ -7,4 +7,4 @@
 @include('components.input', ['label' => 'Phone #', 'name'=>'phone_no', 'value'=>$parent->phone_no])
 @include('components.input', ['label' => 'Email', 'name'=>'email', 'value'=>$parent->email])
 
-@include('components.submit');
+@include('components.submit')

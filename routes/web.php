@@ -16,9 +16,18 @@ Route::resource('students', 'StudentsController');  //this will create all the r
 //Route::get('/student/{student}/edit', 'StudentsController@edit')->name('student.edit');
 //Route::patch('/students/{student}', 'StudentsController@update')->name('student.update');
 
+Route::resource('classes', 'ClassesController');
 Route::resource('attendances', 'AttendancesController');
 
 Route::get('/missing-attendances', 'MissingAttendancesController@index')->name('missing-attendances.index');
 
 Route::get('/approved-attendances', 'ApprovedAttendancesController@index')->name('approved-attendances.index');
 Route::post('/missing-attendances/{attendance}/approved', 'ApprovedAttendancesController@store')->name('approved-attendances.store');
+
+//Route::resource('enrollments', 'StudentsEnrollmentController');  
+
+Route::get('/enrollments', 'StudentsEnrollmentController@create')->name('enrollments.create');
+Route::post('/enrollments', 'StudentsEnrollmentController@store')->name('enrollments.store');
+Route::get('/enrollments/{class}/{student}', 'StudentsEnrollmentController@edit')->name('enrollments.edit');
+Route::patch('/enrollments/{class}', 'StudentsEnrollmentController@update')->name('enrollments.update');
+Route::delete('/enrollments/{class}', 'StudentsEnrollmentController@destroy')->name('enrollments.destroy');
