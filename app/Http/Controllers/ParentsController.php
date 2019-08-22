@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Parents;
+use App\ParentModel;
 use Illuminate\Http\Response;
 
 class ParentsController extends Controller
@@ -15,7 +15,7 @@ class ParentsController extends Controller
      */
     public function index()
     {
-        $parents = Parents::paginate(10);
+        $parents = ParentModel::paginate(10);
 
         return view('parent.index', compact('parents'));
     }
@@ -27,7 +27,7 @@ class ParentsController extends Controller
      */
     public function create()
     {
-        $parent = new Parents();
+        $parent = new ParentModel();
         return view('parent.create', compact('parent'));
     }
 
@@ -41,7 +41,7 @@ class ParentsController extends Controller
     {
         $request->validate($this->validateRequest());
         /*METHOD-1, LONG WAY*/
-        //        $parent = new Parents();
+        //        $parent = new ParentModel();
         //        $parent->father_name = $request->father_name;
         //        $parent->mother_name = $request->mother_name;
         //        $parent->address = $request->address;
@@ -51,7 +51,7 @@ class ParentsController extends Controller
 
         /*METHOD-2, SHORT WAY*/
 
-        Parents::create($request->all());
+        ParentModel::create($request->all());
 
         return redirect('/');
     }
@@ -59,10 +59,10 @@ class ParentsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param Parents $parent
+     * @param ParentModel $parent
      * @return Response
      */
-    public function show(Parents $parent)
+    public function show(ParentModel $parent)
     {
         // Route-Model binding: 
         //Laravel will automatically query the result from db based on ID passed through URL
@@ -73,10 +73,10 @@ class ParentsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param Parents $parent
+     * @param ParentModel $parent
      * @return void
      */
-    public function edit(Parents $parent)
+    public function edit(ParentModel $parent)
     {
         return view('parent.edit', compact('parent'));
     }
@@ -88,7 +88,7 @@ class ParentsController extends Controller
      * @param int $id
      * @return Response
      */
-    public function update(Request $request, Parents $parent)
+    public function update(Request $request, ParentModel $parent)
     {
         $request->validate($this->validateRequest());
 

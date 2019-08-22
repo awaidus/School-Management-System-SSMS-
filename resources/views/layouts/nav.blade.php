@@ -12,8 +12,8 @@
             <!-- Left Side Of Navbar -->
             <ul class="navbar-nav mr-auto">
 
-                <li class="nav-item {{ (request()->is('*parents*')) ? 'active' : '' }}">
-                    <a class=" nav-link" href="{{ route('parent.index') }}">Parents</a>
+                <li class="nav-item {{ (request()->is('/')) ? 'active' : '' }}">
+                    <a class=" nav-link" href="{{ route('parents.index') }}">Parents</a>
                 </li>
                 <li class="nav-item {{ (request()->is('*students*')) ? 'active' : '' }}">
                     <a class="nav-link" href="{{ route('students.index') }}">Student</a>

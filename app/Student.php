@@ -14,13 +14,13 @@ class Student extends Model
 
     public function parents()
     {
-        return $this->belongsTo(Parents::class, 'parent_id');
+        return $this->belongsTo(ParentModel::class, 'parent_id');
     }
 
     public function classes()
     {
         return $this->belongsToMany(
-            Classes::class,
+            ClassModel::class,
             $table = "class_student",
             $relatedPivotKey = 'student_id',
             $foreignPivotKey = 'class_id'

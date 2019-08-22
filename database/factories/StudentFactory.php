@@ -4,13 +4,13 @@
 
 use Faker\Generator as Faker;
 use App\Student;
-use App\Parents;
+use App\ParentModel;
 
 $factory->define(Student::class, function (Faker $faker) {
     return [
         'name' => $faker->name,
         'parent_id' => function () {
-            return factory(Parents::class)->create()->id;
+            return factory(ParentModel::class)->create()->id;
         },
         'roll_no' => $faker->numerify('ST-####'),
         'dob' => $faker->date(),

@@ -2,7 +2,7 @@
 
 @section('content')
 
-<a class="btn btn-primary" href="{{ route('parent.create') }}">Create New Parent</a>
+<a class="btn btn-primary" href="{{ route('parents.create') }}">Create New Parent</a>
 <hr>
 
 
@@ -21,12 +21,12 @@
         <h5 class="mb-1">Mother: {{$parent->mother_name}}</h5>
         <h5 class="mb-1">Ph: {{$parent->phone_no}}</h5>
 
-        <a href="{{route('parent.show', $parent)}}" class="btn btn-outline-primary btn-sm">
+        <a href="{{route('parents.show', $parent)}}" class="btn btn-outline-primary btn-sm">
             <i class="fas fa-arrow-right"></i>
             <span>Details</span>
         </a>
 
-        <a href="{{route('parent.edit', $parent)}}" class="btn btn-outline-info btn-sm">
+        <a href="{{route('parents.edit', $parent)}}" class="btn btn-outline-info btn-sm">
             <i class="fas fa-pencil-alt"></i>
             <span>Edit</span>
         </a>

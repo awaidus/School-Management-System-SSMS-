@@ -3,11 +3,11 @@
 /* @var $factory Factory */
 
 use Faker\Generator as Faker;
-use App\Parents;
+use App\ParentModel;
 use App\User;
 use Illuminate\Database\Eloquent\Factory;
 
-$factory->define(Parents::class, function (Faker $faker) {
+$factory->define(ParentModel::class, function (Faker $faker) {
     return [
         'user_id' => function () {
             return factory(User::class)->create()->id;

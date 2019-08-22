@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Parents;
+use App\ParentModel;
 use App\Student;
 use Illuminate\Http\Request;
 
@@ -18,7 +18,6 @@ class StudentsController extends Controller
         $students = Student::paginate(10);
 
         return view('student.index', compact('students'));
-
     }
 
     /**
@@ -28,10 +27,9 @@ class StudentsController extends Controller
      */
     public function create()
     {
-        $parents = Parents::all();
+        $parents = ParentModel::all();
         $student = new Student();
         return view('student.create', compact('student', 'parents'));
-
     }
 
     /**
@@ -71,7 +69,7 @@ class StudentsController extends Controller
      */
     public function edit(Student $student)
     {
-        $parents = Parents::all();
+        $parents = ParentModel::all();
 
         return view('student.edit', compact('parents', 'student'));
     }
