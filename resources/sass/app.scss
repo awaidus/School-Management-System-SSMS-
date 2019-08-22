@@ -10,10 +10,10 @@
 //Jquery Datetime Picker
 @import "~jquery-datetimepicker/build/jquery.datetimepicker.min.css";
 
-//Font Awesome
-@import "~@fortawesome/fontawesome-free/scss/fontawesome";
-// @import "~@fortawesome/fontawesome-free/scss/regular";
-// @import "~@fortawesome/fontawesome-free/scss/solid";
-// @import "~@fortawesome/fontawesome-free/scss/brands";
+// Fontawesome
+$fa-font-path: "../webfonts" !default;
 
-// \node_modules\@fortawesome\fontawesome-free\scss\fontawesome.scss
+@import "~@fortawesome/fontawesome-free/scss/fontawesome";
+@import "~@fortawesome/fontawesome-free/scss/regular";
+@import "~@fortawesome/fontawesome-free/scss/solid";
+@import "~@fortawesome/fontawesome-free/scss/brands";

@@ -11,13 +11,15 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <!-- Left Side Of Navbar -->
             <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+
                 <li class="nav-item">
-                    <a class="nav-link {{ Request::is('parent.index') ? 'active' : ''  }}"
-                        href="{{ route('parent.index') }}">Parents List</a>
+                    <a class=" nav-link" href="{{ route('parent.index') }}">Parents</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ Request::is('students.index') ? 'active' : '' }}"
-                        href="{{ route('students.index') }}">Student List</a>
+                    <a class="nav-link" href="{{ route('students.index') }}">Student</a>
                 </li>
 
                 <li class="nav-item">

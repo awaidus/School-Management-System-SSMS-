@@ -19,5 +19,10 @@ mix.js(
     "public/js"
 )
     .sass("resources/sass/app.scss", "public/css")
-    .setPublicPath("public")
-    .setResourceRoot("../");
+    .copy(
+        "node_modules/@fortawesome/fontawesome-free/webfonts",
+        "public/webfonts"
+    );
+
+mix.setPublicPath("public");
+mix.setResourceRoot("../");

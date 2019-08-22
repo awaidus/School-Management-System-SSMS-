@@ -49,6 +49,7 @@
 'value'=>$attendance->remarks
 ])
 
+
 @include('components.submit')
 
 

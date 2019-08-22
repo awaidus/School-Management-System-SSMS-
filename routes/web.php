@@ -31,3 +31,5 @@ Route::post('/enrollments', 'StudentsEnrollmentController@store')->name('enrollm
 Route::get('/enrollments/{class}/{student}', 'StudentsEnrollmentController@edit')->name('enrollments.edit');
 Route::patch('/enrollments/{class}', 'StudentsEnrollmentController@update')->name('enrollments.update');
 Route::delete('/enrollments/{class}', 'StudentsEnrollmentController@destroy')->name('enrollments.destroy');
+
+Route::resource('subjects', 'SubjectsController');
