@@ -6,6 +6,7 @@
 <hr>
 
 
+
 @component('components.panel')
 @slot('header')
 <h3>Parent List</h3>
@@ -21,12 +22,13 @@
         <h5 class="mb-1">Ph: {{$parent->phone_no}}</h5>
 
         <a href="{{route('parent.show', $parent)}}" class="btn btn-outline-primary btn-sm">
-            <i class="fa fa-building"></i>
+            <i class="fas fa-arrow-right"></i>
             <span>Details</span>
         </a>
 
         <a href="{{route('parent.edit', $parent)}}" class="btn btn-outline-info btn-sm">
-            <span class="fa fa-edit"></span> Edit
+            <i class="fas fa-pencil-alt"></i>
+            <span>Edit</span>
         </a>
     </div>
 </div>

@@ -73,9 +73,12 @@ $nav-link-disabled-color: $gray-600 !default !default;
 $nav-tabs-border-color: $gray-200 !default;
 
 // Navbar
+
 //** Global color for active items (e.g., navs or dropdowns).
 $component-active-color: $green !default;
-$navbar-default-link-active-color: $green !default;
+
+$navbar-inverse-link-active-color: $component-active-color !default;
+// $navbar-dark-hover-color: $green !default;
 
 $navbar-padding-y: 1rem !default;
 $navbar-dark-color: $white !default;

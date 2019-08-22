@@ -11,22 +11,19 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <!-- Left Side Of Navbar -->
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                </li>
 
-                <li class="nav-item">
+                <li class="nav-item {{ (request()->is('*parents*')) ? 'active' : '' }}">
                     <a class=" nav-link" href="{{ route('parent.index') }}">Parents</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item {{ (request()->is('*students*')) ? 'active' : '' }}">
                     <a class="nav-link" href="{{ route('students.index') }}">Student</a>
                 </li>
 
-                <li class="nav-item">
+                <li class="nav-item {{ (request()->is('*attendances*')) ? 'active' : '' }}">
                     <a class="nav-link" href="{{ route('attendances.index') }}">Attendances</a>
                 </li>
 
-                <li class="nav-item">
+                <li class="nav-item {{ (request()->is('*classes*')) ? 'active' : '' }}">
                     <a class="nav-link" href="{{ route('classes.index') }}">Classes</a>
                 </li>
 
