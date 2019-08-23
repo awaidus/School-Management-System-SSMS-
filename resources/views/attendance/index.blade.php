@@ -1,21 +1,20 @@
-@extends('layouts.app')
-
+@extends('layouts.dashboard')
 @section('content')
 
-<a class="btn btn-primary" href="{{ route('attendances.create') }}">Add Attendance</a>
-<a class="btn btn-outline-info" href="{{ route('approved-attendances.index') }}">Approved Attendances</a>
-<a class="btn btn-outline-info" href="{{ route('missing-attendances.index') }}">Missing Attendances</a>
-<hr>
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h2>{{ $heading ?? 'Attendances' }}</h2>
+    <div class="btn-toolbar mb-2 mb-md-0">
+        <div class="btn-group mr-2">
+            @include('components.button-create', [
+            'route' => route('attendances.create')])
+            <a class="btn btn-outline-info" href="{{ route('approved-attendances.index') }}">Approved</a>
+            <a class="btn btn-outline-info" href="{{ route('missing-attendances.index') }}">Missing</a>
+        </div>
+    </div>
+</div>
 
-
-
-@component('components.panel')
-
-@slot('header')
-All Attendance Record
-@endslot
 
 @include('attendance._list')
-@endcomponent
+
 
 @endsection

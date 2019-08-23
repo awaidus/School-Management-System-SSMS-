@@ -1,18 +1,26 @@
-@extends('layouts.app')
+@extends('layouts.dashboard')
 
 @section('content')
-<div class="card">
-    <div class="card-header">Edit Parent Record</div>
-    <div class="card-body">
 
-        @include('_validation_errors')
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h2>Edit Parent Record</h2>
+    <div class="btn-toolbar mb-2 mb-md-0">
+        <div class="btn-group mr-2">
 
-        <form method="POST" action="{{route('parent.update', $parent)}}">
-            @method('PATCH')
-            @include('parent._form')
-        </form>
-
+        </div>
     </div>
 </div>
+@include('_validation_errors')
+
+<form method="POST" action="{{route('parents.update', $parent)}}">
+    @method('PATCH')
+    @include('parent._form')
+</form>
+
+@isset($parent)
+
+@include('components.button-delete', ['route'=> route('parents.destroy', $parent)])
+
+@endisset
 
 @endsection

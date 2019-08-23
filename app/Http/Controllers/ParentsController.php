@@ -103,9 +103,11 @@ class ParentsController extends Controller
      * @param int $id
      * @return Response
      */
-    public function destroy($id)
+    public function destroy(ParentModel $parent)
     {
-        //
+        $parent->delete();
+
+        return redirect()->route('parents.index');
     }
 
     public function validateRequest()

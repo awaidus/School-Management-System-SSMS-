@@ -2,12 +2,16 @@
 
 Auth::routes();
 
+Route::get('/', function () {
+    return view('dashboard.index');
+})->name('home');
+
 // Appraoch-1 to draw the routes
-Route::get('/', 'ParentsController@index')->name('parents.index');
+Route::get('/parents', 'ParentsController@index')->name('parents.index');
 Route::get('/parents/create', 'ParentsController@create')->name('parents.create');
 Route::get('/parents/{parent}', 'ParentsController@show')->name('parents.show'); //'{parent]' here is a variable/ wildcard
 Route::get('/parents/{parent}/edit', 'ParentsController@edit')->name('parents.edit');
-Route::post('/parents', 'ParentsController@store')->name('parent.store');
+Route::post('/parents', 'ParentsController@store')->name('parents.store');
 Route::patch('/parents/{parent}', 'ParentsController@update')->name('parents.update');
 Route::delete('/parents/{parent}', 'ParentsController@destroy')->name('parents.destroy');
 
@@ -26,10 +30,10 @@ Route::post('/missing-attendances/{attendance}/approved', 'ApprovedAttendancesCo
 
 //Route::resource('enrollments', 'StudentsEnrollmentController');  
 
-Route::get('/enrollments', 'StudentsEnrollmentController@create')->name('enrollments.create');
-Route::post('/enrollments', 'StudentsEnrollmentController@store')->name('enrollments.store');
-Route::get('/enrollments/{class}/{student}', 'StudentsEnrollmentController@edit')->name('enrollments.edit');
-Route::patch('/enrollments/{class}', 'StudentsEnrollmentController@update')->name('enrollments.update');
-Route::delete('/enrollments/{class}', 'StudentsEnrollmentController@destroy')->name('enrollments.destroy');
+Route::get('/classes/enrollments', 'StudentsEnrollmentController@create')->name('enrollments.create');
+Route::post('/classes/enrollments', 'StudentsEnrollmentController@store')->name('enrollments.store');
+Route::get('/classes/enrollments/{class}/{student}', 'StudentsEnrollmentController@edit')->name('enrollments.edit');
+Route::patch('/classes/enrollments/{class}', 'StudentsEnrollmentController@update')->name('enrollments.update');
+Route::delete('/classes/enrollments/{class}', 'StudentsEnrollmentController@destroy')->name('enrollments.destroy');
 
-Route::resource('subjects', 'SubjectsController');
+Route::resource('classes/subjects', 'SubjectsController');

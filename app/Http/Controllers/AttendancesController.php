@@ -69,6 +69,6 @@ class AttendancesController extends Controller
     {
         $attendance->delete();
 
-        return redirect()->back();
+        return redirect()->route('attendances.index');
     }
 }

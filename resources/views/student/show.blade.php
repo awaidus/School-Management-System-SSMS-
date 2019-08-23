@@ -1,19 +1,20 @@
-@extends('layouts.app')
+@extends('layouts.dashboard')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="card">
-            <div class="card-body text-center">
-                <h3>Student: <strong>{{$student->name}}</strong></h3>
-                <div>
-                    <a href="{{route('students.edit', $student)}}" class="btn btn-outline-primary btn-sm">Edit</a>
-                </div>
-            </div>
+
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h2>Student Details</h2>
+    <div class="btn-toolbar mb-2 mb-md-0">
+        <div class="btn-group mr-2">
+            <a href="{{route('students.edit', $student)}}" class="btn btn-outline-secondary">
+                <i class="fas fa-pencil-alt"></i>
+                <span>Edit</span>
+            </a>
         </div>
     </div>
+</div>
 
-    <hr>
+<div class="container">
 
     <div class="row">
         <div class="col-md-6">
@@ -22,13 +23,9 @@
                 <div class="card-body">
 
                     <ul class="list-group">
-                        <li class="list-group-item">Class Name: </li>
-                        <li class="list-group-item">Roll No: </li>
-                        <li class="list-group-item">
-                            <div>Father Name: {{ $student->parents->father_name }}</div>
-                            <div>Mother Name: {{ $student->parents->mother_name }}</div>
-                            <div>(Ph#: {{ $student->parents->phone_no }})</div>
-                        </li>
+                        <li class="list-group-item">Name: <strong>{{$student->name}}</strong></li>
+                        <li class="list-group-item">Roll No: {{$student->roll_no}}</li>
+                        <li class="list-group-item">Class: </li>
                     </ul>
                 </div>
             </div>
@@ -46,6 +43,8 @@
     </div> {{-- end Row --}}
 
 </div>
+
+
 @endsection
 
 

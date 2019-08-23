@@ -5,7 +5,10 @@
             <form method="post" action="{{ $route }}">
                 @method('DELETE')
                 @csrf
-                <button type="submit" class="btn btn-outline-danger" onclick="return confirmDelete()">Delete</button>
+                <button type="submit" class="btn btn-outline-danger {{$class ?? '' }}" onclick="return confirmDelete()">
+                    <i class="far fa-trash-alt"></i>
+                    <span>Delete</span>
+                </button>
             </form>
         </div>
     </div>
