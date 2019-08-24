@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Subject;
 use Illuminate\Database\Eloquent\Model;
 
 class ClassModel extends Model
@@ -21,6 +22,11 @@ class ClassModel extends Model
             ->orderBy('date_from', 'desc')
             ->as('class_enrollment')
             ->withPivot('date_from', 'date_to');
+    }
+
+    public function subjects()
+    {
+        return $this->hasMany(Subject::class, 'class_id');
     }
 
 

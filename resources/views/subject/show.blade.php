@@ -51,30 +51,6 @@
 </div>
 
 <h4>Subjects</h4>
-<div class="table-responsive">
 
-    <table class="table table-striped table-sm">
-        <thead>
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">Subject</th>
-                <th scope="col"></th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach ($class->subjects as $subject)
-            <tr>
-                <th>{{$loop->iteration}}</th>
-                <td>{{$subject->title}}</td>
-                <td>
-                    @include('components.button-edit', [
-                    'route' => route('subjects.edit', [$subject]),
-                    'class' =>'btn-sm'])
-            </tr>
-            @endforeach {{--end student foreach--}}
-        </tbody>
-    </table>
-
-</div>
 
 @endsection

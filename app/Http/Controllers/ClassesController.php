@@ -12,6 +12,7 @@ class ClassesController extends Controller
     public function index()
     {
         $classes = ClassModel::withCount('students')->paginate(50);
+
         return view('class.index', compact('classes'));
     }
 
@@ -37,7 +38,7 @@ class ClassesController extends Controller
     public function show(ClassModel $class)
     {
         return view('class.show', [
-            'class' => $class->load('students')
+            'class' => $class->load(['students', 'subjects'])
         ]);
     }
 

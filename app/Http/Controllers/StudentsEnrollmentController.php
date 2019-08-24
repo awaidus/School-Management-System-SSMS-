@@ -14,7 +14,7 @@ class StudentsEnrollmentController extends Controller
         $class = new ClassModel();
         $students = Student::all();
         $classes = ClassModel::all();
-        return view('class.create-enrollment', compact('students', 'classes', 'class'));
+        return view('enrollment.create', compact('students', 'classes', 'class'));
     }
 
     public function store(Request $request)
@@ -24,7 +24,6 @@ class StudentsEnrollmentController extends Controller
         $class = ClassModel::find($request->class_id);
         $student = Student::find($request->student_id);
 
-        // $class->students()->attach($student);
         $class->students()->save(
             $student,
             [
@@ -42,7 +41,7 @@ class StudentsEnrollmentController extends Controller
         $classes = ClassModel::all();
 
         return view(
-            'class.edit-enrollment',
+            'enrollment.edit',
             [
                 'students' => $students,
                 'classes' => $classes,
@@ -57,7 +56,6 @@ class StudentsEnrollmentController extends Controller
         $request->validate($this->validateRequest($request));
 
         $class = ClassModel::find($request->class_id);
-        //$student = Student::find($request->student_id);
 
         $class->students()->detach($request->old_student_id);
         $class->students()->attach(

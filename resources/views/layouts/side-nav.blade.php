@@ -17,8 +17,8 @@
             <li class="nav-item ">
                 <a class="nav-link {{ (request()->is('*students*')) ? 'active' : '' }}"
                     href="{{ route('students.index') }}">
-                    <i class="fas fa-graduation-cap"></i>
-                    <span>Student</span>
+                    <i class="fas fa-user-graduate"></i>
+                    <span>Students</span>
                 </a>
             </li>
 
@@ -40,7 +40,7 @@
 
             <li class="nav-item ">
                 <a class="nav-link {{ (request()->is('*subjects*')) ? 'active' : '' }}"
-                    href="{{ route('classes.index') }}">
+                    href="{{ route('subjects.index') }}">
                     <i class="fas fa-book-open"></i>
                     <span>Subjects</span>
                 </a>
@@ -48,13 +48,7 @@
 
             <hr>
 
-            <li class="nav-item ">
-                <a class="nav-link {{ (request()->is('*enrollments*')) ? 'active' : '' }}"
-                    href="{{ route('classes.index') }}">
-                    <i class="fas fa-user-tag"></i>
-                    <span>Students Enrollments</span>
-                </a>
-            </li>
+
         </ul>
     </div>
 </nav>

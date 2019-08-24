@@ -36,4 +36,4 @@
 'class'=> 'date'
 ])
 
-@include('components.submit', ['class' => 'btn btn-primary'])
+@include('components.submit', ['class' => ''])

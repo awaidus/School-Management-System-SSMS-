@@ -1,6 +1,6 @@
 <div class="form-group row">
     <div class="offset-2">
-        <button type="submit" class="{{ $class ?? 'btn btn-success' }}">
+        <button type="submit" class="btn btn-success {{ $class ?? '' }}">
             <i class="fas fa-save"></i>
             <span>{{ $text ?? 'Submit' }}</span>
         </button>

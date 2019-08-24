@@ -28,12 +28,11 @@ Route::get('/missing-attendances', 'MissingAttendancesController@index')->name('
 Route::get('/approved-attendances', 'ApprovedAttendancesController@index')->name('approved-attendances.index');
 Route::post('/missing-attendances/{attendance}/approved', 'ApprovedAttendancesController@store')->name('approved-attendances.store');
 
-//Route::resource('enrollments', 'StudentsEnrollmentController');  
 
-Route::get('/classes/enrollments', 'StudentsEnrollmentController@create')->name('enrollments.create');
+Route::get('/enrollments/classes', 'StudentsEnrollmentController@create')->name('enrollments.create');
 Route::post('/classes/enrollments', 'StudentsEnrollmentController@store')->name('enrollments.store');
 Route::get('/classes/enrollments/{class}/{student}', 'StudentsEnrollmentController@edit')->name('enrollments.edit');
 Route::patch('/classes/enrollments/{class}', 'StudentsEnrollmentController@update')->name('enrollments.update');
 Route::delete('/classes/enrollments/{class}', 'StudentsEnrollmentController@destroy')->name('enrollments.destroy');
 
-Route::resource('classes/subjects', 'SubjectsController');
+Route::resource('subjects', 'SubjectsController');
