@@ -27,6 +27,8 @@ class SubjectsController extends Controller
 
         Subject::create($request->all());
 
+        flashy()->success('Subject has been added');
+
         return redirect()->route('subjects.index');
     }
 
@@ -41,13 +43,19 @@ class SubjectsController extends Controller
 
     public function update(Request $request, Subject $subject)
     {
+        $request->validate($this->validateRequest());
+
+        $subject->update($request->all());
+
+        flashy()->success('Subject has been updated');
+
         return redirect()->route('subjects.index');
     }
 
     public function destroy(Subject $subject)
     {
         $subject->delete();
-
+        flashy()->success('Subject has been deleted');
         return redirect()->route('subjects.index');
     }
 

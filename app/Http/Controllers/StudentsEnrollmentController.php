@@ -32,6 +32,8 @@ class StudentsEnrollmentController extends Controller
             ]
         );
 
+        flashy()->success('Student enrollment has been added');
+
         return redirect()->route('classes.show', $class);
     }
 
@@ -66,12 +68,15 @@ class StudentsEnrollmentController extends Controller
             ]
         );
 
+        flashy()->success('Student enrollment has been updated');
+
         return redirect()->route('classes.show', $class);
     }
 
     public function destroy(Request $request, ClassModel $class)
     {
         $class->students()->detach($request->student_id);
+        flashy()->success('Student enrollment has been deleted');
 
         return redirect()->route('classes.show', $class);
     }

@@ -32,6 +32,8 @@ class AttendancesController extends Controller
 
         Attendance::create($request->all());
 
+        flashy()->success('Attendance record has been created');
+
         return redirect()->back();
     }
 
@@ -61,6 +63,8 @@ class AttendancesController extends Controller
 
         $attendance->update($request->all());
 
+        flashy()->success('Attendance record has been updated');
+
         return redirect()->route('attendances.index');
     }
 
@@ -68,6 +72,8 @@ class AttendancesController extends Controller
     public function destroy(Attendance $attendance)
     {
         $attendance->delete();
+
+        flashy()->success('Attendance record has been deleted');
 
         return redirect()->route('attendances.index');
     }

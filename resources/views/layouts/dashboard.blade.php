@@ -47,11 +47,15 @@
         </div>
     </div>
 
+
+
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('js/site.js') }}"></script>
 
     @yield('script')
+
+    @include('flashy::message')
 
 </body>
 

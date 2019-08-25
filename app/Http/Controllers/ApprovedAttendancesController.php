@@ -22,6 +22,8 @@ class ApprovedAttendancesController extends Controller
             'approved' => 'on',
         ]);
 
+        flashy()->success('Attendance record has been updated');
+
 
         return redirect()->back();
     }

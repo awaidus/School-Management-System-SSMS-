@@ -53,7 +53,9 @@ class ParentsController extends Controller
 
         ParentModel::create($request->all());
 
-        return redirect('/');
+        flashy()->success('Parent details has been added');
+
+        return redirect()->route('parents.index');
     }
 
     /**
@@ -94,7 +96,9 @@ class ParentsController extends Controller
 
         $parent->update($request->all());
 
-        return redirect('/');
+        flashy()->success('Parent details has been updated');
+
+        return redirect()->route('parents.index');
     }
 
     /**
@@ -106,6 +110,8 @@ class ParentsController extends Controller
     public function destroy(ParentModel $parent)
     {
         $parent->delete();
+
+        flashy()->success('Parent record has been deleted');
 
         return redirect()->route('parents.index');
     }

@@ -28,6 +28,8 @@ class MissingAttendancesController extends Controller
 
         event(new AbsentReportSendToParents($attendance->first()));
 
+        flashy()->success('Email has been sent to ' . $attendance->email);
+
         return redirect()->back();
     }
 }

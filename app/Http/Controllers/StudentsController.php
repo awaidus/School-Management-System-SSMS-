@@ -8,11 +8,7 @@ use Illuminate\Http\Request;
 
 class StudentsController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return void
-     */
+
     public function index()
     {
         $students = Student::paginate(10);
@@ -20,11 +16,6 @@ class StudentsController extends Controller
         return view('student.index', compact('students'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         $parents = ParentModel::all();
@@ -32,27 +23,18 @@ class StudentsController extends Controller
         return view('student.create', compact('student', 'parents'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(Request $request)
     {
         $request->validate($this->validateRequest());
 
         $student = Student::create($request->all());
 
+        flashy()->success('Student record has been created');
+
         return redirect()->route('student.show', $student);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param Student $student
-     * @return Student
-     */
     public function show(Student $student)
     {
         return view('student.show', [
@@ -61,12 +43,6 @@ class StudentsController extends Controller
         ]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param Student $student
-     * @return void
-     */
     public function edit(Student $student)
     {
         $parents = ParentModel::all();
@@ -74,31 +50,22 @@ class StudentsController extends Controller
         return view('student.edit', compact('parents', 'student'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param \Illuminate\Http\Request $request
-     * @param Student $student
-     * @return \Illuminate\Http\Response
-     */
+
     public function update(Request $request, Student $student)
     {
         $request->validate($this->validateRequest());
 
         $student->update($request->all());
 
+        flashy()->success('Student record has been updated');
+
         return redirect()->route('students.show', $student);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param int $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(Student $student)
     {
         $student->delete();
+        flashy()->success('Student record has been deleted');
 
         return redirect()->route('students.index');
     }

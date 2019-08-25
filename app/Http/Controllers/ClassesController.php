@@ -32,6 +32,8 @@ class ClassesController extends Controller
 
         ClassModel::create($request->all());
 
+        flashy()->success('Class record has been created');
+
         return redirect()->route('classes.index');
     }
 
@@ -57,6 +59,8 @@ class ClassesController extends Controller
 
         $class->update($request->all());
 
+        flashy()->success('Class record has been created');
+
         return redirect()->route('classes.index');
     }
 
@@ -64,6 +68,7 @@ class ClassesController extends Controller
     public function destroy(ClassModel $class)
     {
         $class->delete();
+        flashy()->success('Class record has been deleted');
         return redirect()->route('classes.index');
     }
 }
