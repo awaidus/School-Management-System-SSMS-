@@ -10,7 +10,7 @@ class AttendancesController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('admin')->except(['index', 'show']);
+        $this->middleware('admin')->except(['index', 'show', 'create', 'store']);
     }
 
     public function index()
@@ -20,9 +20,9 @@ class AttendancesController extends Controller
                 ->WithStudent()
                 ->paginate(50);
         } else {
-            $attendances = Attendance::where('parent_id', auth()->user()->id)
-                ->latest('working_day')
+            $attendances = Attendance::latest('working_day')
                 ->WithStudent()
+                ->where('parent_id', auth()->user()->parent_id)
                 ->paginate(50);
         }
 
@@ -31,7 +31,11 @@ class AttendancesController extends Controller
 
     public function create()
     {
-        $students = Student::all();
+        if (auth()->user()->is_admin) {
+            $students = Student::all();
+        } else {
+            $students = Student::where('parent_id', auth()->user()->parent_id)->get();
+        }
         $attendance = new Attendance();
         return view('attendance.create', compact('students', 'attendance'));
     }
@@ -42,9 +46,9 @@ class AttendancesController extends Controller
 
         Attendance::create($request->all());
 
-        flashy()->success('Attendance record has been created');
+        flashy()->success('Attendance record has been added/ applied');
 
-        return redirect()->back();
+        return redirect()->route('attendances.index');
     }
 
     public function validateRequest()

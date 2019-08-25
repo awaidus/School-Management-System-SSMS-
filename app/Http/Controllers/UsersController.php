@@ -2,29 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\ParentModel;
 use App\User;
-use Illuminate\Http\Request;
 
 class UsersController extends Controller
 {
-    public function index()
+    public function __construct()
     {
-        $users = User::all();
-
-        return view('user.index', compact('users'));
+        $this->middleware('admin');
     }
 
-    public function associate(User $user)
+    public function index()
     {
-        $parents = ParentModel::all();
+        $users = User::orderBy('is_admin', 'desc')->orderBy('username')->get();
 
-        return view(
-            'user.associate',
-            [
-                'parents' => $parents,
-                'user' => $user->load('parents'),
-            ]
-        );
+        return view('user.index', compact('users'));
     }
 }

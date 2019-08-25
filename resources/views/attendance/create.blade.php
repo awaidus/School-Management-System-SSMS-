@@ -13,7 +13,6 @@
 @include('_validation_errors')
 
 <form method="POST" action="{{route('attendances.store')}}">
-    @method('PATCH')
     @include('attendance._form')
 </form>
 

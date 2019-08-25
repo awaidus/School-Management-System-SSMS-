@@ -31,6 +31,8 @@
 'class'=>'time'
 ])
 
+@can('admin')
+
 @include('components.checkbox', [
 'label' => 'Missing',
 'name'=>'missing',
@@ -42,6 +44,7 @@
 'name'=>'approved',
 'value'=>$attendance->approved
 ])
+@endcan
 
 @include('components.input', [
 'label' => 'Remarks',

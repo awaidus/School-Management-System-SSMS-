@@ -12,10 +12,18 @@ class MissingAttendancesController extends Controller
 {
     public function index()
     {
-        $attendances = Attendance::latest('working_day')
-            ->WithStudent()
-            ->missingAttendances()
-            ->paginate(10);
+        if (auth()->user()->is_admin) {
+            $attendances = Attendance::latest('working_day')
+                ->WithStudent()
+                ->missingAttendances()
+                ->paginate(10);
+        } else {
+            $attendances = Attendance::where('parent_id', auth()->user()->parent_id)
+                ->latest('working_day')
+                ->WithStudent()
+                ->missingAttendances()
+                ->paginate(10);
+        }
 
         return view('attendance.missing-index', compact('attendances'));
     }
@@ -28,7 +36,7 @@ class MissingAttendancesController extends Controller
 
         event(new AbsentReportSendToParents($attendance->first()));
 
-        flashy()->success('Email has been sent to ' . $attendance->email);
+        flashy()->success('Email has been sent to ' . $attendance->first()->email);
 
         return redirect()->back();
     }

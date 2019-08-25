@@ -20,7 +20,10 @@
             @foreach ($attendances as $att)
             <tr>
                 <td scope="row">{{ $loop->iteration }}</td>
-                <td>{{ $att->student_name }}</td>
+                <td>
+                    <div>{{ $att->student_name }} </div>
+                    <small>Parent Email: {{ $att->email }}</small>
+                </td>
                 <td>{{ $att->working_day  }}</td>
                 <td>{{ $att->in_at  }}</td>
                 <td>{{ $att->out_at }}</td>
@@ -36,7 +39,7 @@
                             'route' => route('attendances.edit', $att),
                             'class' =>'btn-sm'])
                         </span>
-
+                        @can('admin')
                         @if ($att->missing === true && $att->approved === false)
                         <form method="POST" action="{{ route('missing-attendances.mail')}}">
                             @csrf
@@ -47,6 +50,7 @@
                             </button>
                         </form>
                         @endif
+                        @endcan
 
                     </div>
 

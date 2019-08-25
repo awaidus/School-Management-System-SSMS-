@@ -28,6 +28,8 @@ class SendEmailAbsentReportToParentListener
      */
     public function handle(AbsentReportSendToParents $event)
     {
+        return $event->attendance;
+
         Mail::to($event->attendance->email)
             ->send(new StudentAbsentReportMail($event->attendance));
     }

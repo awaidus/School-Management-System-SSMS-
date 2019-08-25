@@ -6,10 +6,12 @@
     <h2>Student Details</h2>
     <div class="btn-toolbar mb-2 mb-md-0">
         <div class="btn-group mr-2">
-            <a href="{{route('students.edit', $student)}}" class="btn btn-outline-secondary">
-                <i class="fas fa-pencil-alt"></i>
-                <span>Edit</span>
-            </a>
+
+            @can('admin')
+            @include('components.button-edit', [
+            'route' => route('students.edit', $student)])
+            @endcan
+
         </div>
     </div>
 </div>

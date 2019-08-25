@@ -30,17 +30,12 @@
                 <td scope="row">{{ $loop->iteration }}</td>
                 <td>{{$user->username}}</td>
                 <td>{{$user->email}}</td>
-                <td>{{$user->is_admin}}</td>
+                {{-- <td>{{$user->is_admin}}</td> --}}
+                <td><input type="checkbox" {{ $user->is_admin ? 'checked' : '' }} disabled>
                 <td class="float-right mr-2">
                     {{-- @include('components.button-show', [
                     'route' => route('classes.show', $class),
                     'class' =>'btn-sm'])--}}
-
-                    @include('components.button-show', [
-                    'route' => route('users.associate', $user),
-                    'text' => 'Associate User',
-                    'class' =>'btn-sm'
-                    ])
                 </td>
             </tr>
             @endforeach

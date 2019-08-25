@@ -41,9 +41,12 @@
                     'route' => route('students.show', $student),
                     'class' =>'btn-sm'])
 
+                    @can('admin')
                     @include('components.button-edit', [
                     'route' => route('students.edit', $student),
                     'class' =>'btn-sm'])
+                    @endcan
+
                 </td>
             </tr>
 

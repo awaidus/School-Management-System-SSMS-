@@ -20,7 +20,7 @@ class StudentsController extends Controller
             $students = Student::paginate(10);
         } else {
 
-            $students = Student::where('parent_id', auth()->user()->id)->paginate(30);
+            $students = Student::where('parent_id', auth()->user()->parent_id)->paginate(30);
         }
 
         return view('student.index', compact('students'));
