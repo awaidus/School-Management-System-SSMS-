@@ -30,7 +30,7 @@
                 <td scope="row">{{ $loop->iteration }}</td>
                 <td>{{$subject->title}}</td>
                 <td>{{$subject->class->title}}</td>
-                <td>
+                <td class="float-right mr-2">
 
                     @include('components.button-edit', [
                     'route' => route('subjects.edit', $subject),

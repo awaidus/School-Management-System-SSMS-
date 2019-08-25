@@ -19,17 +19,17 @@
         <tbody>
             @foreach ($attendances as $att)
             <tr>
-                <td class="py-1" scope="row">{{ $loop->iteration }}</td>
-                <td class="py-1">{{ $att->student_name }}</td>
-                <td class="py-1">{{ $att->working_day  }}</td>
-                <td class="py-1">{{ $att->in_at  }}</td>
-                <td class="py-1">{{ $att->out_at }}</td>
-                <td class="py-1"><input type="checkbox" name="missing" {{ $att->missing ? 'checked' : '' }} disabled>
+                <td scope="row">{{ $loop->iteration }}</td>
+                <td>{{ $att->student_name }}</td>
+                <td>{{ $att->working_day  }}</td>
+                <td>{{ $att->in_at  }}</td>
+                <td>{{ $att->out_at }}</td>
+                <td><input type="checkbox" name="missing" {{ $att->missing ? 'checked' : '' }} disabled>
                 </td>
-                <td class="py-1"><input type="checkbox" name="approved" {{ $att->approved ? 'checked' : '' }} disabled>
+                <td><input type="checkbox" name="approved" {{ $att->approved ? 'checked' : '' }} disabled>
                 </td>
-                <td class="py-1">{{ $att->remarks }}</td>
-                <td class="py-1">
+                <td>{{ $att->remarks }}</td>
+                <td class="float-right mr-2">
                     <div class="input-group">
                         <span class="input-group-btn">
                             @include('components.button-edit', [

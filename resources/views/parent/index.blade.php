@@ -38,7 +38,7 @@
                 <td>{{$parent->mother_name}}</td>
                 <td>{{$parent->phone_no}}</td>
                 <td>{{$parent->email}}</td>
-                <td>
+                <td class="float-right mr-2">
                     @include('components.button-show', [
                     'route' => route('parents.show', $parent),
                     'class' =>'btn-sm'])

@@ -38,7 +38,7 @@
                 <td>{{$student->roll_no}}</td>
                 <td>{{$student->class_enrollment->date_from}}</td>
                 <td>{{$student->class_enrollment->date_to}}</td>
-                <td>
+                <td class="float-right mr-2">
                     @include('components.button-edit', [
                     'route' => route('enrollments.edit', [$class, $student->id]),
                     'class' =>'btn-sm'])
@@ -66,9 +66,9 @@
             <tr>
                 <th>{{$loop->iteration}}</th>
                 <td>{{$subject->title}}</td>
-                <td>
+                <td class="float-right mr-2">
                     @include('components.button-edit', [
-                    'route' => route('subjects.edit', [$subject]),
+                    'route' => route('subjects.edit', [$subject] ),
                     'class' =>'btn-sm'])
             </tr>
             @endforeach {{--end student foreach--}}

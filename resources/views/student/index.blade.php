@@ -36,7 +36,7 @@
                 <td>{{$student->name}}</td>
                 <td>{{$student->roll_no}}</td>
                 <td></td>
-                <td>
+                <td class="float-right mr-2">
                     @include('components.button-show', [
                     'route' => route('students.show', $student),
                     'class' =>'btn-sm'])

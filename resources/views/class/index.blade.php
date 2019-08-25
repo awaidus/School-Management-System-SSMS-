@@ -36,7 +36,7 @@
                 <td scope="row">{{ $loop->iteration }}</td>
                 <td>{{$class->title}}</td>
                 <td><span class="badge badge-primary">{{ $class->students_count }}</span></td>
-                <td>
+                <td class="float-right mr-2">
                     @include('components.button-show', [
                     'route' => route('classes.show', $class),
                     'class' =>'btn-sm'])
