@@ -8,15 +8,25 @@ use Illuminate\Http\Request;
 
 class AttendancesController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('admin')->except(['index', 'show']);
+    }
+
     public function index()
     {
-        $students = Student::all();
+        if (auth()->user()->is_admin) {
+            $attendances = Attendance::latest('working_day')
+                ->WithStudent()
+                ->paginate(50);
+        } else {
+            $attendances = Attendance::where('parent_id', auth()->user()->id)
+                ->latest('working_day')
+                ->WithStudent()
+                ->paginate(50);
+        }
 
-        $attendances = Attendance::latest('working_day')
-            ->WithStudent()
-            ->paginate(50);
-
-        return view('attendance.index', compact('attendances', 'students'));
+        return view('attendance.index', compact('attendances'));
     }
 
     public function create()

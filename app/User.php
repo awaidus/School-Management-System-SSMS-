@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\ParentModel;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -16,7 +17,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'is_admin'
+        'username', 'email', 'password', 'is_admin', 'parent_id',
     ];
 
     /**
@@ -35,6 +36,16 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
-        'is_admin' => 'boolean',
     ];
+
+    public function getIsAdminAttribute($value)
+    {
+        if ($value == 0) return false;
+        return true;
+    }
+
+    public function parent()
+    {
+        return $this->belongsTo(ParentModel::class, 'parent_id');
+    }
 }

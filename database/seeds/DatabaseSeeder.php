@@ -24,9 +24,9 @@ class DatabaseSeeder extends Seeder
 
         //one record for admin purposes
         factory(User::class, 1)->create([
-            'name' => 'admin',
-            'email' => 'admin@ssms.com',
-            'is_admin' => true,
+            'username' => 'admin',
+            // 'email' => 'admin@ssms.com',
+            'is_admin' => 1,
         ]);
     }
 }

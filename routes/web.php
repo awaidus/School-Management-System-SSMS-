@@ -41,4 +41,8 @@ Route::middleware(['auth'])->group(function () {
     Route::delete('/classes/enrollments/{class}', 'StudentsEnrollmentController@destroy')->name('enrollments.destroy');
 
     Route::resource('subjects', 'SubjectsController');
+
+    Route::get('/users', 'UsersController@index')->name('users.index');
+    Route::get('/users/associate/{user}', 'UsersController@associate')->name('users.associate');
+    Route::post('/users/associate', 'UsersController@update')->name('users.update');
 });

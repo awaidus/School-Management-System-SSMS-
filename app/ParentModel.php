@@ -17,4 +17,9 @@ class ParentModel extends Model
     {
         return $this->hasMany(Student::class, 'parent_id');
     }
+
+    public function user_account()
+    {
+        return $this->hasOne(User::class);
+    }
 }

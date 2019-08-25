@@ -8,10 +8,20 @@ use Illuminate\Http\Request;
 
 class StudentsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('admin')->except(['index', 'show']);
+    }
 
     public function index()
     {
-        $students = Student::paginate(10);
+        if (auth()->user()->is_admin) {
+
+            $students = Student::paginate(10);
+        } else {
+
+            $students = Student::where('parent_id', auth()->user()->id)->paginate(30);
+        }
 
         return view('student.index', compact('students'));
     }

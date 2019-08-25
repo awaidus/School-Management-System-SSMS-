@@ -26,13 +26,15 @@
 </head>
 
 <body>
-
+    @auth
     @include('layouts.top-nav')
+    @endauth
 
     <div class="container-fluid">
         <div class="row">
-
+            @auth
             @include('layouts.side-nav')
+            @endauth
 
             <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
                 <div class="row justify-content-center">

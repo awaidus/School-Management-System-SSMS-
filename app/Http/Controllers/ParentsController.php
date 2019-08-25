@@ -5,9 +5,17 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\ParentModel;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Auth;
 
 class ParentsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('admin');
+
+        //$this->middleware('admin')->only('index');
+        //$this->middleware('admin')->except('store');
+    }
     /**
      * Display a listing of the resource.
      *
