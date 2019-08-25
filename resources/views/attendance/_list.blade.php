@@ -30,9 +30,25 @@
                 </td>
                 <td class="py-1">{{ $att->remarks }}</td>
                 <td class="py-1">
-                    @include('components.button-edit', [
-                    'route' => route('attendances.edit', $att),
-                    'class' =>'btn-sm'])
+                    <div class="input-group">
+                        <span class="input-group-btn">
+                            @include('components.button-edit', [
+                            'route' => route('attendances.edit', $att),
+                            'class' =>'btn-sm'])
+                        </span>
+
+                        @if ($att->missing === true && $att->approved === false)
+                        <form method="POST" action="{{ route('missing-attendances.mail')}}">
+                            @csrf
+                            <input type="hidden" name='id' value='{{ $att->id }}'>
+                            <button type="submit" class="btn btn-info btn-sm">
+                                <i class="far fa-envelope"></i>
+                                <span>Email</span>
+                            </button>
+                        </form>
+                        @endif
+
+                    </div>
 
                 </td>
             </tr>
@@ -43,4 +59,5 @@
     </table>
 
     <div class="my-3">{{ $attendances->links() }}</div>
+
 </div>

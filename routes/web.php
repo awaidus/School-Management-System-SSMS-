@@ -24,6 +24,7 @@ Route::resource('classes', 'ClassesController');
 Route::resource('attendances', 'AttendancesController');
 
 Route::get('/missing-attendances', 'MissingAttendancesController@index')->name('missing-attendances.index');
+Route::post('/missing-attendances/mail', 'MissingAttendancesController@mail')->name('missing-attendances.mail');
 
 Route::get('/approved-attendances', 'ApprovedAttendancesController@index')->name('approved-attendances.index');
 Route::post('/missing-attendances/{attendance}/approved', 'ApprovedAttendancesController@store')->name('approved-attendances.store');

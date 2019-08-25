@@ -30,7 +30,8 @@ class Attendance extends Model
     {
         return $query
             ->leftjoin('students', 'attendances.student_id', '=', 'students.id')
-            ->select('attendances.*', 'students.name as student_name', 'students.roll_no');
+            ->leftjoin('parents', 'students.parent_id', '=', 'parents.id')
+            ->select('attendances.*', 'students.name as student_name', 'students.roll_no', 'parents.father_name', 'parents.mother_name', 'parents.phone_no', 'parents.email');
     }
 
     public function scopeMissingAttendances($query)
